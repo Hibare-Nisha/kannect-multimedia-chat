@@ -91,11 +91,3 @@ node_modules/
 
 ---
 
-## 📸 Screenshots
-
- *(To be added soon)*
-
----
-
-
-Feel free to contribute, fork, or ⭐ this repo!
