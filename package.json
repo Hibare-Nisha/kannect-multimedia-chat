@@ -1,0 +1,20 @@
+{
+  "name": "nodeserver",
+  "version": "1.0.0",
+  "description": "This is node server",
+  "license": "ISC",
+  "author": "Kannika",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node nodeserver/server.js",
+    "dev": "nodemon nodeserver/server.js"
+  },
+  "dependencies": {
+    "socket.io": "^4.8.1",
+    "express": "^4.18.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

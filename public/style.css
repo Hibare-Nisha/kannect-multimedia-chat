@@ -1,0 +1,423 @@
+/* Reset default margins/padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: #ff90e8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Navigation styles */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5px 10px;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 5px;
+}
+
+nav h1 {
+    font-size: 40px;
+    color: #333;
+    text-align: center;
+}
+
+/* Audio Control */
+.audio-control {
+    margin-top: 10px;
+}
+
+.audio-control label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.audio-control input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #ff90e8;
+}
+
+/* Chat container */
+.container {
+  max-width: 1200px; /* increased to allow wider bubbles on large screens */
+  width: 94%;
+  background: rgb(255, 255, 255);
+  margin: 10px auto;
+  padding: 28px; /* slightly reduced padding to give more horizontal room */
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  height: 60vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgb(65, 56, 56);
+}
+
+/* Messages wrapper (no outer box) */
+.message {
+  /* outer wrapper - bubble contains the visible background */
+  max-width: 100%;
+  margin: 10px 0;
+  font-size: 16px;
+  word-wrap: break-word;
+  position: relative;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.left {
+  align-self: flex-start;
+}
+
+.right {
+  align-self: flex-end;
+}
+
+.send {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#send-container {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    max-width: 1000px;
+    gap: 5px;
+}
+
+#messageInp {
+    width: 85%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #333;
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#messageInp:focus {
+    border-color: #8e44ad;
+}
+
+/* From Uiverse.io by satyamchaudharydev */ 
+/* inspired form gumroad website */
+.btn {
+  --bg: #000;
+  --hover-bg: #ff90e8;
+  --hover-text: #000;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid var(--bg);
+  border-radius: 4px;
+  padding: 0.8em 2em;
+  background: var(--bg);
+  transition: 0.2s;
+  border-radius: 20px;
+}
+
+.btn:hover {
+  color: var(--hover-text);
+  transform: translate(-0.25rem, -0.25rem);
+  background: var(--hover-bg);
+  box-shadow: 0.25rem 0.25rem var(--bg);
+}
+
+.btn:active {
+  transform: translate(0);
+  box-shadow: none;
+}
+
+/* Audio Recording Styles */
+.btn-audio {
+  --bg: #ff6b9d;
+  --hover-bg: #ff90e8;
+  background: var(--bg);
+}
+
+.btn-audio:hover {
+  background: var(--hover-bg);
+}
+
+.btn-stop {
+  --bg: #e74c3c;
+  --hover-bg: #ff6b9d;
+  background: var(--bg);
+}
+
+.btn-stop:hover {
+  background: var(--hover-bg);
+}
+
+.recording-status {
+  display: none;
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px;
+  background: #fff2f4;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.recording-indicator {
+  font-weight: bold;
+  color: #e74c3c;
+  font-size: 16px;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Media buttons (Image/Video) */
+.btn-media {
+  --bg: #9b59b6;
+  --hover-bg: #af7ac5;
+  background: var(--bg);
+  padding: 0.7em 1.2em;
+  font-size: 13px;
+}
+
+.btn-media:hover {
+  background: var(--hover-bg);
+}
+
+.uploading-status {
+  display: none;
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px;
+  background: #e8f4f8;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.uploading-indicator {
+  font-weight: bold;
+  color: #3498db;
+  font-size: 16px;
+}
+
+#uploadProgress {
+  height: 5px;
+  border-radius: 5px;
+}
+
+/* Media message containers */
+.media-message {
+  max-width: 600px;
+  padding: 14px;
+  border-radius: 12px;
+  margin: 14px 0;
+}
+.media-message img,
+.media-message video {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+.media-message p {
+  margin: 5px 0;
+  font-size: 13px;
+  color: #666;
+}
+
+/* WhatsApp-like message bubble styles */
+.message {
+  display: flex;
+  margin: 20px 0; /* increased row spacing */
+}
+
+.message .bubble {
+  max-width: 96%; /* widened message bubbles */
+  padding: 18px 22px; /* increased padding for roomier bubbles */
+  border-radius: 18px;
+  position: relative;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+
+.message.left {
+  justify-content: flex-start;
+}
+
+.message.left .bubble {
+  background: #fafafa; /* subtle light gray for incoming */
+  color: #111;
+}
+
+.message.right {
+  justify-content: flex-end;
+}
+
+.message.right .bubble {
+  background: #e6f7ff; /* subtle light blue for outgoing */
+  color: #111;
+}
+
+.bubble .sender {
+  font-weight: 800;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #222;
+  text-transform: none; /* ensure not uppercase, only bold */
+  /* allow full name visibility */
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  word-break: break-word;
+  max-width: 100%;
+  display: block;
+}
+
+.bubble .text {
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.bubble .meta {
+  margin-top: 8px;
+  text-align: right;
+}
+
+.bubble .meta small {
+  color: #666;
+  font-size: 11px;
+}
+
+/* System messages (join/leave) */
+.system-message {
+  align-self: center;
+  width: 100%;
+}
+.system-message .bubble.system {
+  background: transparent;
+  box-shadow: none;
+  border-radius: 8px;
+  padding: 0;
+}
+
+/* Inline layout for audio bubbles: sender, compact audio control, timestamp all in one line */
+.bubble.audio-bubble {
+  /* Put sender on its own line so long names are fully visible */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 16px; /* roomier audio bubble */
+  border-radius: 18px;
+}
+
+.bubble.audio-bubble .sender {
+  margin-bottom: 4px;
+  font-size: 14px;
+  display: block;
+  margin-right: 0;
+  max-width: none;
+  white-space: normal;
+}
+/* Limit sender width in audio bubbles so it doesn't wrap or overlap the audio player */
+/* removed sender max-width for audio bubbles to show full names */
+
+.bubble.audio-bubble audio {
+  width: 300px; /* requested larger player */
+  max-width: 100%; /* responsive fallback on narrow screens */
+  height: 34px;
+}
+
+.bubble.audio-bubble .meta {
+  margin-top: 0;
+  margin-left: 8px; /* small gap before timestamp */
+}
+
+/* On small screens, make audio player shrink */
+@media screen and (max-width: 480px) {
+  .bubble.audio-bubble audio {
+    width: 120px;
+  }
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    nav h1 {
+        font-size: 24px;
+    }
+
+    .message {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    #messageInp {
+        width: 75%;
+        font-size: 14px;
+    }
+
+    .btn {
+        width: 20%;
+        font-size: 14px;
+    }
+
+    .container {
+        height: 55vh;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav h1 {
+        font-size: 20px;
+    }
+
+    .logo {
+        width: 45px;
+        height: 45px;
+    }
+
+    .container {
+        padding: 15px;
+        height: 50vh;
+    }
+
+    .message {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+
+    #messageInp {
+        width: 70%;
+        font-size: 13px;
+    }
+
+    .btn {
+        width: 25%;
+        font-size: 13px;
+    }
+}

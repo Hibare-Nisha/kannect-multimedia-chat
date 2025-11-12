@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kannika CHAT APP</title>
+    <script defer src="http://localhost:10000/socket.io/socket.io.js"></script>
+    <script defer src="/script.js"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <nav>
+        <img class = "logo" src="/logo.png" alt="logo">
+        <h1>Welcome to Kannect</h1>
+        <div class="audio-control">
+            <label>
+                <input type="checkbox" id="audioToggle" checked>
+                <span>🔊 Sound</span>
+            </label>
+        </div>
+    </nav>
+    <div class="container">
+    <!--   <div class="message right"> kannika : hey how are you ?  </div>
+        <div class="message left"> reply : I am fine. How about you ?</div> --> 
+    </div>
+    <div class="send">
+        <form action="#" id="send-container">
+            <input type="text" name="messageInp" id="messageInp" placeholder="Type a message...">
+            <button class="btn" type="submit">
+               Send
+            </button>
+            <button class="btn btn-audio" type="button" id="recordBtn">
+               🎤 Record
+            </button>
+            <button class="btn btn-media" type="button" id="imageBtn" title="Send Image">
+               🖼️ Image
+            </button>
+            <button class="btn btn-media" type="button" id="videoBtn" title="Send Video">
+               🎥 Video
+            </button>
+        </form>
+        <input type="file" id="imageInput" accept="image/*" style="display:none;">
+        <input type="file" id="videoInput" accept="video/*" style="display:none;">
+        <div id="recordingStatus" class="recording-status" style="display:none;">
+            <span class="recording-indicator">● Recording...</span>
+            <button type="button" id="stopBtn" class="btn btn-stop">Stop</button>
+        </div>
+        <div id="uploadingStatus" class="uploading-status" style="display:none;">
+            <span class="uploading-indicator">⏳ Uploading...</span>
+            <progress id="uploadProgress" value="0" max="100" style="width: 200px; margin-left: 10px;"></progress>
+        </div>
+    </div>
+    <audio id="audioPlayback" controls style="display:none; width: 100%; margin: 10px 0;"></audio>
+ </body>
+</html>
